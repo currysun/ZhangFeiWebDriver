@@ -1,0 +1,1 @@
+1.FirefoxDriver(FirfoxProfile profile) 构造方法在selenium 3 中取消了。
