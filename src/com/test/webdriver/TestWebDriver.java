@@ -43,7 +43,6 @@ public class TestWebDriver {
 		ProfilesIni profiles=new ProfilesIni();
 		FirefoxProfile profile=profiles.getProfile("default");
 		FirefoxOptions option=new FirefoxOptions();
-		option.addArguments("user-data-dir="+);
 		//driver =new FirefoxDriver(profile);
 		//
 		//profile.addExtension("firebug");
