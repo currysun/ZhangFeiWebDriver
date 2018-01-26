@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="suite" verbose="1" parallel="false" thread-count="1" >
+
+    <test name="Test1" preserve-order="true">
+		<packages>
+			<package name="com.test.TestNG" />
+		</packages>
+    </test>
+
+</suite>

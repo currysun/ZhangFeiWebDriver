@@ -1,4 +1,4 @@
-package com.test.webdriver;
+package com.test.webdriver.day1;
 
 import java.io.File;
 import java.io.IOException;

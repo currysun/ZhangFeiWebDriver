@@ -1,4 +1,4 @@
-package com.test.webdriver;
+package com.test.webdriver.day2;
 
 import java.util.List;
 
@@ -11,9 +11,23 @@ import org.openqa.selenium.support.ui.Select;
  * 1.Webdriver 输入框最重要的api sendkeys
  * 
  * sendKey后的值 就会变成属性？ 可以用getAttribute 来获取？
- * 
+ */ 
+ /**
+  * 答：这是html input标签的特性，只针对input标签
+ **/
+ 
+ /* 
  * 2. Select 控件有单独的Select 类提供方法。
  * selectByIndex 是从0开始
+ */
+
+/*
+ * 1.Input
+ * 2.Link
+ * 3.Select
+ * 4.Radio box
+ * 5.Check box
+ * 6.button
  */
 public class TestBaseApi {
 	
@@ -148,6 +162,7 @@ public class TestBaseApi {
 	}
 	
 	
+
 	
 
 }
