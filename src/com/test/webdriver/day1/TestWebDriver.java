@@ -68,18 +68,18 @@ public class TestWebDriver {
 	
 	public static void main(String[] args) {
 		TestWebDriver test=new TestWebDriver();
-		//test.startBrowser();
+		test.startBrowser();
 		//test.startFirefoxWithAddon();
 		//test.maxBrowser();
 		//test.startFirefoxWithAddon();
-		//test.closeBrowser();
+		test.closeBrowser();
 		
 		
-		//chrome
+		/*//chrome
 		test.startChromeBrowser();
 		test.maxBrowser();
-		test.startChromeBrowserWithAddon();
-		//test.closeBrowser();
+		//test.startChromeBrowserWithAddon();
+		test.closeBrowser();*/
 	}
 
 }
