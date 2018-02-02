@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
-    <line>
-      <![CDATA[this is TestNG log ]]>
-    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20" started-at="2018-01-26T07:12:21Z" finished-at="2018-01-26T07:12:21Z">
+  <suite name="Default suite" duration-ms="12908" started-at="2018-02-02T10:10:54Z" finished-at="2018-02-02T10:11:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20" started-at="2018-01-26T07:12:21Z" finished-at="2018-01-26T07:12:21Z">
-      <class name="com.test.webdriver.day4.TestLog">
-        <test-method status="PASS" signature="testLog4j()[pri:0, instance:com.test.webdriver.day4.TestLog@ed9d034]" name="testLog4j" duration-ms="7" started-at="2018-01-26T15:12:21Z" finished-at="2018-01-26T15:12:21Z">
+    <test name="Default test" duration-ms="12908" started-at="2018-02-02T10:10:54Z" finished-at="2018-02-02T10:11:07Z">
+      <class name="com.test.webdriver.day4.AssignmentDemo1">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.test.webdriver.day4.AssignmentDemo1@305fd85d]" name="loginTest" duration-ms="12893" started-at="2018-02-02T18:10:54Z" finished-at="2018-02-02T18:11:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLog4j -->
-        <test-method status="PASS" signature="testNgLog()[pri:0, instance:com.test.webdriver.day4.TestLog@ed9d034]" name="testNgLog" duration-ms="0" started-at="2018-01-26T15:12:21Z" finished-at="2018-01-26T15:12:21Z">
-          <reporter-output>
-            <line>
-              <![CDATA[this is TestNG log ]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testNgLog -->
-      </class> <!-- com.test.webdriver.day4.TestLog -->
+        </test-method> <!-- loginTest -->
+      </class> <!-- com.test.webdriver.day4.AssignmentDemo1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

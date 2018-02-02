@@ -1,6 +1,7 @@
 package com.test.webdriver.day4;
 
 import org.apache.log4j.Logger;
+import org.testng.Reporter;
 
 public class Log {
 		
@@ -16,5 +17,27 @@ public class Log {
 	
 	public Log() {
 		logger=Logger.getLogger("");
+	}
+	
+	public void info(Object message) {
+		logger.info(message);
+		testngLogOutput(message);
+	}
+	
+	public void error(Object message) {
+		logger.error(message);
+		testngLogOutput(message);
+	}
+	public void warn(Object message) {
+		logger.warn(message);
+		testngLogOutput(message);
+	}
+	public void debug(Object message) {
+		logger.debug(message);
+		testngLogOutput(message);
+	}
+	
+	private void testngLogOutput(Object message) {
+		Reporter.log(message.toString());
 	}
 }

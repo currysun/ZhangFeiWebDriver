@@ -19,6 +19,12 @@ import org.testng.annotations.Test;
 public class AssignmentDemo1 {
 	private WebDriver driver;
 	String url="http://localhost/phpwind/index.php";
+	//WebDriver 官方用法优化：原始对象和 业务逻辑的耦合关系的分离。
+	//原始对象
+	private By loginb=By.xpath("//span/button[@name='head_login']");
+	private By usename=By.xpath("//div/input[@class='input']");
+	private By pwd=By.xpath("//div/input[@class='input']");
+	private By submit=By.xpath("//span/button[@type='submit']");
 	
 	public void startBrower() {
 		System.setProperty("webdriver.gecko.driver", "files/geckodriver.exe");
@@ -30,17 +36,6 @@ public class AssignmentDemo1 {
 		driver.navigate().to(url);
 	}
 	
-	public void login(String username,String password) {
-		WebElement loginbutton=driver.findElement(By.xpath("//span/button[@name='head_login']"));
-		loginbutton.click();
-		WebElement inputusrname=driver.findElement(By.xpath("//div/input[@class='input']"));
-		WebElement inputpwd=driver.findElement(By.xpath("//div/input[@type='password']"));
-		WebElement loginsubmit=driver.findElement(By.xpath("//span/button[@type='submit']"));
-		inputusrname.sendKeys(username);
-		inputpwd.sendKeys(password);
-		loginsubmit.click();
-		
-	}
 	
 	public void tempclose() {
 		WebDriverWait wait=new WebDriverWait(driver, 3);
@@ -54,72 +49,30 @@ public class AssignmentDemo1 {
 		close.click();
 	}
 	
-	public void enterLogPage() {
-		WebElement tunnel=driver.findElement(By.id("td_mymenu"));
-		Actions action=new Actions(driver);
-		action.moveToElement(tunnel).perform();
-		WebElement mylog=driver.findElement(By.xpath("//li/a/img[@alt='日志']"));
-		mylog.click();
-	}
 	
-	public void writeLog(String title) {
-		WebElement writenew=driver.findElement(By.xpath("//span/button[text()='写新日志']"));
-		writenew.click();
-		WebElement inputTitle=driver.findElement(By.id("atc_title"));
-		inputTitle.sendKeys(title);
-		
-		//driver.navigate().refresh();
-		driver.switchTo().frame(0);
-		WebElement content=driver.findElement(By.tagName("div"));
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].innerHTML='123'", content);
-		driver.switchTo().defaultContent();		
-		WebElement submit =driver.findElement(By.xpath("//span/button[@name='Submit']"));
-		submit.click();
-	}
 	
-	public void switchmylog(String expectResult) {
-		WebElement mylog=driver.findElement(By.xpath("//li/a[text()='我的日志']"));
-		mylog.click();
-		WebElement title=driver.findElement(By.xpath("//dl/dt/p/a"));
-		String txtTitle=title.getText();
-		assertEquals(txtTitle, expectResult,"Verify title value");
-		ScreenShot ss=new ScreenShot(driver);
-		ss.taskScreenshot();
-		
-	}
-	
-	public void deletelog() {
-		boolean result=false;
-		WebElement delete =driver.findElement(By.xpath("//div/dl[1]/dt/a[2]"));
-		delete.click();
-		WebElement confirm=driver.findElement(By.xpath("//span/button[text()='确 定']"));
-		confirm.click();
-		WebElement title=driver.findElement(By.className("mb10"));
-		if(!title.isDisplayed()) {
-			 result=true;
-			 assertEquals(result, true);
-		}
-		else {
-			result=false; 
-			assertEquals(result, false);
-		}
-	}
 	
 	public void close() {
 		driver.close();
 	}
 	
+
+	
 	@Test
 	public void loginTest() {
 		startBrower();
 		navigate();
-		login("currysun","sx65641633");
-		tempclose();
-		enterLogPage();
-		writeLog("title curry");
-		switchmylog("title curry");
-		deletelog();
+		LoginPage lp=new LoginPage(driver);
+		lp.login("currysun", "sx65641633");
+		TempPage tp=new TempPage(driver);
+		tp.closeTemp();
+		HomePage hp=new HomePage(driver);
+		hp.enterMyLogPage();
+		MylogPage mlp=new MylogPage(driver);
+		mlp.writeLog("title curry");
+		MyPage mp=new MyPage(driver);
+		mp.switchmylog("title curry");
+		mp.deletelog();
 		close();
 	}
 
